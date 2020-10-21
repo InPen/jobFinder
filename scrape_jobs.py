@@ -5,3 +5,7 @@ URL = 'https://www.monster.com/jobs/search/?q=Javascript-Engineer&where=Massachu
 page = requests.get(URL)
 
 soup = BeautifulSoup(page.content, 'html.parser')
+results = soup.find(id='ResultsContainer')
+# print(results.prettify())
+
+job_elems = results.find_all('section', class_='card-content')
